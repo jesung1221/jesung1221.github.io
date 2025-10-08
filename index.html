@@ -9,16 +9,65 @@
     <link rel="icon" href="images/favicon/camera.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
+    <style>
+        /* Navigation bar styles */
+        .topnav {
+            position: fixed;
+            top: 14px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 999px;
+            padding: 10px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .topnav a {
+            color: #111;
+            opacity: .85;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .topnav a:hover {
+            opacity: 1;
+            color: #e56c02;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add padding to sections for fixed nav */
+        .section-header {
+            scroll-margin-top: 80px;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Navigation Bar -->
+    <nav class="topnav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#patent">Patent</a>
+        <a href="#project">Project</a>
+    </nav>
+
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
         <tbody>
             <tr style="padding:0px">
                 <td style="padding:0px">
 
                     <!-- Introduction Section -->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                    <table id="about" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
                             <tr style="padding:0px">
                                 <td style="padding:2.5%;width:63%;vertical-align:middle">
@@ -53,11 +102,11 @@
                     </table>
 
                     <!-- Research Section -->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                    <table id="research" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle">
-                                    <h2>Research</h2>
+                                    <h2 class="section-header">Research</h2>
                                 </td>
                             </tr>
                         </tbody>
@@ -105,11 +154,11 @@
                     </table>
 
                     <!-- Patent Section -->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                    <table id="patent" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle">
-                                    <h2>Patent</h2>
+                                    <h2 class="section-header">Patent</h2>
                                 </td>
                             </tr>
                         </tbody>
@@ -158,11 +207,11 @@
 
 
                     <!-- Project Section -->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                    <table id="project" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle">
-                                    <h2>Project</h2>
+                                    <h2 class="section-header">Project</h2>
                                 </td>
                             </tr>
                         </tbody>
@@ -171,10 +220,10 @@
                     <!-- Project Section / FOV measurement Tool -->
                     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
-                            <tr onmouseout="patent_stop()" onmouseover="patent_start()">
+                            <tr onmouseout="fov_stop()" onmouseover="fov_start()">
                                 <td style="padding:5px;width:20%;vertical-align:center;text-align:center;">
                                     <div class="one">
-                                        <div class="two" id='patent_image'>
+                                        <div class="two" id='fov_image'>
                                             <video width=100% muted autoplay loop>
                                                 <source src="images/videos/uqllm.mp4" type="video/mp4"> Your browser does not support the video tag.
                                             </video>
@@ -182,14 +231,14 @@
                                         <img src='images/thumbnails/FOV.JPG' style="width:100%; display:inline-block;">
                                     </div>
                                     <script type="text/javascript">
-                                        function patent_start() {
-                                            document.getElementById('patent_image').style.opacity = "1";
+                                        function fov_start() {
+                                            document.getElementById('fov_image').style.opacity = "1";
                                         }
                                 
-                                        function patent_stop() {
-                                            document.getElementById('patent_image').style.opacity = "0";
+                                        function fov_stop() {
+                                            document.getElementById('fov_image').style.opacity = "0";
                                         }
-                                        patent_stop()
+                                        fov_stop()
                                     </script>
                                 </td>
                                 <td style="padding:15px;width:80%;vertical-align:center">
@@ -215,10 +264,10 @@
                     
                     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
-                            <tr onmouseout="patent_stop()" onmouseover="patent_start()">
+                            <tr onmouseout="eis_stop()" onmouseover="eis_start()">
                                 <td style="padding:5px;width:20%;vertical-align:center;text-align:center;">
                                     <div class="one">
-                                        <div class="two" id='patent_image'>
+                                        <div class="two" id='eis_image'>
                                             <video width=100% muted autoplay loop>
                                                 <source src="images/videos/uqllm.mp4" type="video/mp4"> Your browser does not support the video tag.
                                             </video>
@@ -226,14 +275,14 @@
                                         <img src='images/thumbnails/EIS.jpg' style="width:100%; display:inline-block;">
                                     </div>
                                     <script type="text/javascript">
-                                        function patent_start() {
-                                            document.getElementById('patent_image').style.opacity = "1";
+                                        function eis_start() {
+                                            document.getElementById('eis_image').style.opacity = "1";
                                         }
                                 
-                                        function patent_stop() {
-                                            document.getElementById('patent_image').style.opacity = "0";
+                                        function eis_stop() {
+                                            document.getElementById('eis_image').style.opacity = "0";
                                         }
-                                        patent_stop()
+                                        eis_stop()
                                     </script>
                                 </td>
                                 <td style="padding:15px;width:80%;vertical-align:center">
@@ -261,10 +310,10 @@
 
                     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
-                            <tr onmouseout="patent_stop()" onmouseover="patent_start()">
+                            <tr onmouseout="crime_stop()" onmouseover="crime_start()">
                                 <td style="padding:5px;width:20%;vertical-align:center;text-align:center;">
                                     <div class="one">
-                                        <div class="two" id='patent_image'>
+                                        <div class="two" id='crime_image'>
                                             <video width=100% muted autoplay loop>
                                                 <source src="images/videos/uqllm.mp4" type="video/mp4"> Your browser does not support the video tag.
                                             </video>
@@ -272,14 +321,14 @@
                                         <img src='images/thumbnails/CrimeClassifier.PNG' style="width:100%; display:inline-block;">
                                     </div>
                                     <script type="text/javascript">
-                                        function patent_start() {
-                                            document.getElementById('patent_image').style.opacity = "1";
+                                        function crime_start() {
+                                            document.getElementById('crime_image').style.opacity = "1";
                                         }
                                 
-                                        function patent_stop() {
-                                            document.getElementById('patent_image').style.opacity = "0";
+                                        function crime_stop() {
+                                            document.getElementById('crime_image').style.opacity = "0";
                                         }
-                                        patent_stop()
+                                        crime_stop()
                                     </script>
                                 </td>
                                 <td style="padding:15px;width:80%;vertical-align:center">
