@@ -10,34 +10,86 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+        }
+
         /* Navigation bar styles */
         .topnav {
             position: fixed;
-            top: 14px;
-            right: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 9999;
             display: flex;
-            gap: 16px;
+            justify-content: center;
             align-items: center;
-            font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 999px;
-            padding: 10px 20px;
+            gap: 40px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            font: 500 15px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: auto;
+            margin-left: 40px;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 40px;
+            align-items: center;
         }
 
         .topnav a {
-            color: #111;
-            opacity: .85;
+            color: #666;
             text-decoration: none;
-            transition: opacity 0.2s ease;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 14px;
         }
 
         .topnav a:hover {
-            opacity: 1;
             color: #e56c02;
+        }
+
+        .cv-button {
+            background: #4a90e2;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cv-button:hover {
+            background: #357abd;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
         }
 
         /* Smooth scroll */
@@ -49,16 +101,26 @@
         .section-header {
             scroll-margin-top: 80px;
         }
+
+        body {
+            padding-top: 70px;
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav class="topnav">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#patent">Patent</a>
-        <a href="#project">Project</a>
+        <div class="nav-left">
+            <span class="nav-logo">👨‍💻 JaeSeong Kim</span>
+        </div>
+        <div class="nav-center">
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#patent">Patent</a>
+            <a href="#project">Project</a>
+            <a href="files/CV.pdf" class="cv-button">CV</a>
+        </div>
     </nav>
 
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
@@ -67,7 +129,7 @@
                 <td style="padding:0px">
 
                     <!-- Introduction Section -->
-                    <table id="about" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                    <table id="about" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;scroll-margin-top:80px;">
                         <tbody>
                             <tr style="padding:0px">
                                 <td style="padding:2.5%;width:63%;vertical-align:middle">
@@ -75,7 +137,7 @@
                                         JaeSeong Kim
                                     </p>
                                     <p style="text-align: center; margin-top: -10px; margin-bottom: 20px; font-size: 16px; color: #666;">
-                                        Mobile computational photography — Image Quality evaluation, ISP tuning, and novel sensor design
+                                        Mobile computational photography – Image Quality evaluation, ISP tuning, and novel sensor design
                                     </p>
                                     <p>
                                         Hi! I'm JaeSeong Kim, a recent M.Sc. graduate in Electrical & Electronics Engineering from Tel Aviv University in Israel, where I also completed my B.Sc. in Electrical Engineering. I specialized in computer vision and computational imaging, with research
@@ -306,9 +368,6 @@
                         </tbody>
                     </table>
 
-
-
-
                     <!-- Project Section / Crime Analysis with Computer Vision  -->
 
                     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
@@ -352,10 +411,6 @@
                             </tr>
                         </tbody>
                     </table>
-
-
-
-
 
                     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
